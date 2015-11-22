@@ -6,9 +6,9 @@ var {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
+  Dimensions,
 } = React
 
-var Dimensions = require('Dimensions')
 var screenWidth = Dimensions.get('window').width
 var queueAnimation = require('./animations.js');
 
