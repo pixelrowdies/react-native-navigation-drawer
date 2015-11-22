@@ -93,8 +93,10 @@ var SlideMenu = React.createClass({
         this.center.setNativeProps({ left: this.offset + position });
       } else if (this.offset + position <= 0) {
         this.menu.setNativeProps({
-          left: this.offset + position,
-          right: screenWidth - (this.offset + position + this.props.width)
+          style: {
+            left: this.offset + position,
+            right: screenWidth - (this.offset + position + this.props.width)
+          }
         });
       }
     } else if (this.props.slideWay !== 'left') {
@@ -103,8 +105,10 @@ var SlideMenu = React.createClass({
         this.center.setNativeProps({ right: this.offset - position });
       } else if (this.offset - position <= 0) {
         this.menu.setNativeProps({
-          right: this.offset + position,
-          left: screenWidth + position
+          style: {
+            right: this.offset + position,
+            left: screenWidth + position
+          }
         });
       }
     }
@@ -130,16 +134,20 @@ var SlideMenu = React.createClass({
       this.props.moveFrontView ?
       this.center.setNativeProps({ left: this.offset }) :
       this.menu.setNativeProps({
-        left: this.offset,
-        right: screenWidth - (this.offset + this.props.width)
+        style: {
+          left: this.offset,
+          right: screenWidth - (this.offset + this.props.width)
+        }
       });
     }
     else {
       this.props.moveFrontView ?
       this.center.setNativeProps({ right: this.offset }) :
       this.menu.setNativeProps({
-        right: this.offset,
-        left: this.offset - this.props.width
+        style: {
+          right: this.offset,
+          left: this.offset - this.props.width
+        }
       });
     }
   },
@@ -198,13 +206,17 @@ var SlideMenu = React.createClass({
     } else {
       if (this.props.slideWay === 'left') {
         var menuWayStyle = {
-          left: this.offset,
-          right: screenWidth - (this.offset + this.props.width)
+          style: {
+            left: this.offset,
+            right: screenWidth - (this.offset + this.props.width)
+          }
         };
       } else {
         var menuWayStyle = {
-          right: this.offset,
-          left: screenWidth - (this.offset + this.props.width)
+          style: {
+            right: this.offset,
+            left: screenWidth - (this.offset + this.props.width)
+          }
         };
       }
 
