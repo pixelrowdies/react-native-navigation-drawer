@@ -162,8 +162,14 @@ var SlideMenu = React.createClass({
   routeFrontView(fragmentId) {
     this.props.routeFrontView(fragmentId);
   },
+  
+  onLayoutChanged() {
+    screenWidth = Dimensions.get('window').width;
+    
+    this.moveAppropriateView(this.offset);
+  },
 
-  render() {
+  render() {    
     if (this.state.slideMenuIsOpen) {
       var overlay =
         <TouchableWithoutFeedback onPress={this.toggleSlideMenu}>
@@ -188,7 +194,7 @@ var SlideMenu = React.createClass({
       }
 
       return (
-        <View style={[styles.containerSlideMenu, this.props.style]}>
+        <View style={[styles.containerSlideMenu, this.props.style]} onLayoutChanged={this.onLayoutChanged}>
           <View
             style={[styles.fixedMenu, rightStyle]}
             ref={(menu) => this.menu = menu}>
