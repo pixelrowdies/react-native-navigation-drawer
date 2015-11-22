@@ -27,6 +27,5 @@
   },
   "homepage": "https://github.com/ilansas/react-native-navigation-drawer",
   "dependencies": {
-    "react-native": "^0.6.0"
   }
 }
